@@ -3,12 +3,6 @@
 {% block title %} Customer List {% endblock title %}
 
 {% block content %}
-	{% if perms.customers.can_manage_customers %}
-	<a id="add-new-customer" href="{% url 'customers:customer-create' %}" class="btn btn-primary">
-		<i class="fa fa-plus"></i> Add New Customer
-	</a>
-	<hr>
-	{% endif %}
 	{% if customer_list %}
 	<p>There {{customer_list.count|pluralize:"is,are"}} totally <b> {{ customer_list.count }} </b>customer{{customer_list.count|pluralize }}.</p>
 	

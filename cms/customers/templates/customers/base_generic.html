@@ -20,16 +20,24 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div id="sidebar" class="col-md-2 sidebar">
-
+				<p class="text-center border">
+					Welcome:				
 					{% if user.is_authenticated %}
-					<p class="text-center">
-					Welcome: <b>{{ user.username }}</b>!
-					<hr>
-					<a href="{% url 'logout' %}?next={{ request.path }}" class="btn btn-outline-secondary btn-block">Logout</a>
+					<b class="">{{ user.username }}</b>!
 					{% endif %}
-					</p>
-				{% block sidebar %}
-				{% endblock sidebar %}
+				</p>
+				<hr>
+				<a href="{% url 'customers:customer-list' %}" class="btn btn-primary btn-block"><i class="fa fa-home"></i> Home</a>
+				{% if perms.customers.can_manage_customers %}
+					<a id="add-new-customer" href="{% url 'customers:customer-create' %}" class="btn btn-success btn-block">
+						<i class="fa fa-plus"></i> Add New Customer
+					</a>
+				{% endif %}
+				{% if user.is_authenticated %}
+				<a href="{% url 'logout' %}?next={{ request.path }}" class="btn btn-outline-secondary btn-block">Logout</a>
+				{% endif %}
+			{% block sidebar %}
+			{% endblock sidebar %}
 			</div>
 			<div class="col-md-10 content">
 				{% block content %}
