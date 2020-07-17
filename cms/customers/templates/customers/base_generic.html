@@ -19,19 +19,19 @@
 	</div>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-1 sidebar">
+			<div id="sidebar" class="col-md-2 sidebar">
 
 					{% if user.is_authenticated %}
 					<p class="text-center">
-						<i class="fa fa-user fa-3x"></i> <b>{{ user.username }}</b>
-					</p>
-					<a href="{% url 'logout' %}?next={{ request.path }}" class="btn btn-outline-secondary">Logout</a>
+					Welcome: <b>{{ user.username }}</b>!
+					<hr>
+					<a href="{% url 'logout' %}?next={{ request.path }}" class="btn btn-outline-secondary btn-block">Logout</a>
 					{% endif %}
-
+					</p>
 				{% block sidebar %}
 				{% endblock sidebar %}
 			</div>
-			<div class="col-md-11 content">
+			<div class="col-md-10 content">
 				{% block content %}
 				{% endblock content %}
 			</div>
@@ -40,7 +40,7 @@
 	<div class="container-fluid footer">
 		<div class="row">
 			<div class="col-md-12">
-				<p class="text-center">Developed by: Chit Ko Ko Oo</p>
+				<p class="text-center developer">Developed by: Chit Ko Ko Oo</p>
 			</div>
 		</div>
 	</div>

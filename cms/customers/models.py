@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Customer(models.Model):
 	name = models.CharField(max_length=200)
@@ -12,7 +13,7 @@ class Customer(models.Model):
 		return self.name
 
 	def get_absolute_url(self):
-		return reverse('customer-detail', args=[str(self.id)])
+		return reverse('customers:customer-detail', args=[str(self.id)])
 
 	class Meta:
 		permissions = (('can_manage_customers', 'Customer CRUD Operations'),)

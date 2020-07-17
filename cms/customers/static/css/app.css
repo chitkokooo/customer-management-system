@@ -1,7 +1,19 @@
+.login-box {
+	
+}
+
 .branding {
 	padding: 20px;
 	color: gray;
-	background-color: rgba(0,0,0, 0.7);
+	background-color: rgba(0,0,0, 0.13);
+}
+
+#search-name {
+	font-size: 16px;
+	padding: 12px 20px 12px 40px;
+	width: 100%;
+	height: 50px;
+	margin-bottom: 10px;
 }
 
 .content {
@@ -13,9 +25,9 @@
 }
 
 .sidebar {
+	overflow: hidden;
 	padding: 20px;
-	list-style: none;
-	background-color: rgba(0,0,0, 0.2);
+	background-color: rgba(0,0,0,0.1);
 }
 
 .branding h1 a {
@@ -23,7 +35,16 @@
 }
 
 .footer {
-	background-color: rgba(0,0,0, 0.9);
 	color: white;
 	padding: 50px;
+	background: -webkit-linear-gradient(55deg, #414141, #4d4d4d);
+	background: -o-linear-gradient(55deg, #414141, #4d4d4d);
+	background: linear-gradient(145deg, #414141, #4d4d4d);
+}
+
+.developer {
+    font-family: verdana;
+    font-size: 1em;
+    font-weight: 700;
+    color: #818181;
 }

@@ -17,9 +17,9 @@
 		{% endif %}
 	{% endif %}
 
-	<form action="{% url 'login' %}" method="POST">
+	<form action="{% url 'login' %}" method="POST" class="login-box">
 		{% csrf_token %}
-		<table class="table table-borderless">
+		<table class="">
 			<tr>
 				<td>{{ form.username.label_tag }}</td>
 				<td>{{ form.username }}</td>
