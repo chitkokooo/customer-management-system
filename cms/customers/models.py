@@ -13,5 +13,6 @@ class Customer(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('customer-detail', args=[str(self.id)])
-		
 
+	class Meta:
+		permissions = (('can_manage_customers', 'Customer CRUD Operations'),)

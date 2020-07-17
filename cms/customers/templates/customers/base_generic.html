@@ -19,17 +19,19 @@
 	</div>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-2 sidebar">
+			<div class="col-md-1 sidebar">
 
 					{% if user.is_authenticated %}
-					<b>Hi: </b><i class="fa fa-user"></i> {{ user.username }}
-					<a href="{% url 'logout' %}?next={{ request.path }}" class="btn btn-block btn-secondary">Logout</a>
+					<p class="text-center">
+						<i class="fa fa-user fa-3x"></i> <b>{{ user.username }}</b>
+					</p>
+					<a href="{% url 'logout' %}?next={{ request.path }}" class="btn btn-outline-secondary">Logout</a>
 					{% endif %}
 
 				{% block sidebar %}
 				{% endblock sidebar %}
 			</div>
-			<div class="col-md-10 content">
+			<div class="col-md-11 content">
 				{% block content %}
 				{% endblock content %}
 			</div>

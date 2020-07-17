@@ -10,7 +10,7 @@
 	<form action="" method="POST">
 		{% csrf_token %}
 		<table>{{ form.as_table }}</table>
-		<input type="submit" name="update-customer" value="Update" class="btn btn-warning">
+		<input type="submit" name="update-customer" value="Save" class="btn btn-warning">
 		<a href="{% url 'customers:customer-list' %}" class="btn btn-outline-secondary">
 			Cancel
 		</a>

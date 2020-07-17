@@ -1,7 +1,7 @@
 .branding {
 	padding: 20px;
 	color: gray;
-	background-color: black;
+	background-color: rgba(0,0,0, 0.7);
 }
 
 .content {
@@ -15,7 +15,7 @@
 .sidebar {
 	padding: 20px;
 	list-style: none;
-	background-color: skyblue;
+	background-color: rgba(0,0,0, 0.2);
 }
 
 .branding h1 a {
@@ -23,7 +23,7 @@
 }
 
 .footer {
-	background-color: black;
+	background-color: rgba(0,0,0, 0.9);
 	color: white;
-	padding: 100px;
+	padding: 50px;
 }

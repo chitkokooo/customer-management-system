@@ -20,18 +20,18 @@ class CustomerDetialView(LoginRequiredMixin, generic.DetailView):
 
 
 class CustomerCreate(PermissionRequiredMixin, CreateView):
-	permission_required = 'customer.can_add'
+	permission_required = 'customers.can_manage_customers'
 	model = Customer
 	fields = '__all__'
 
 
 class CustomerUpdate(PermissionRequiredMixin, UpdateView):
-	permission_required = 'customer.can_change'
+	permission_required = 'customers.can_manage_customers'
 	model = Customer
 	fields = ['name', 'account', 'information', 'remarks']
 
 
 class CustomerDelete(PermissionRequiredMixin, DeleteView):
-	permission_required = 'customer.can_delete'
+	permission_required = 'customers.can_manage_customers'
 	model = Customer
 	success_url = reverse_lazy('customers:customer-list')
