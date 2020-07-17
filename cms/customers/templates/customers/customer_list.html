@@ -15,7 +15,9 @@
 				<th>Remarks</th>
 				<th>Info Created</th>
 				<th>Info Updated</th>
-				<th>View Detail</th>
+				<th>Detail</th>
+				<th>Edit</th>
+				<th>Delete</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -28,7 +30,15 @@
 					<td>{{ customer.remarks }}</td>
 					<td class="">{{ customer.info_created_at }}</td>
 					<td class="">{{ customer.info_updated_at }}</td>
-					<td><a href="{% url 'customers:customer-detail' customer.id %}" class="btn btn-sm btn-primary">View</a></td>
+					<td>
+						<a href="{% url 'customers:customer-detail' customer.id %}" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i> View</a>
+					</td>
+					<td>
+						<a href="{% url 'customers:customer-detail' customer.id %}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i> Edit</a>
+					</td>
+					<td>
+						<a href="{% url 'customers:customer-detail' customer.id %}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Delete</a>
+					</td>
 				</tr>
 			{% endfor %}
 		</tbody>

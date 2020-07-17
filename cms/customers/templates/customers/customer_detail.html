@@ -1,4 +1,31 @@
 {% extends "customers/base_generic.html" %}
 {% block title %} {{ customer.name }} {% endblock %}
 
-
+{% block content %}
+<a href="{% url 'customers:customer-list' %}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Back to customer list</a>
+<br><br>
+<h3><b>Customer Name:</b> {{ customer.name }}</h3>
+<hr>
+<div class="container detail-items">
+	<div class="row">
+		<div class="col-md-2"><b>Account Number:</b></div>
+		<div class="col-md-10">{{ customer.account }}</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2"><b>Information:</b></div>
+		<div class="col-md-10">{{ customer.information }}</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2"><b>Remarks:</b></div>
+		<div class="col-md-10">{{ customer.remarks }}</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2"><b>Info Created Time:</b></div>
+		<div class="col-md-10">{{ customer.info_created_at }}</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2"><b>Info Updated Time:</b></div>
+		<div class="col-md-10">{{ customer.info_updated_at }}</div>
+	</div>
+</div>
+{% endblock content %}

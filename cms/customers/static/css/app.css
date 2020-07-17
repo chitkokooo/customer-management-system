@@ -8,6 +8,10 @@
 	padding: 30px;
 }
 
+.detail-items div {
+	padding: 10px;
+}
+
 .sidebar {
 	padding: 20px;
 	background-color: red;
