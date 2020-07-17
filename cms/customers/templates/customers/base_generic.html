@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Customers | {% block title %}{% endblock title %}</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min-4.5.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fontawesome5.13/css/all.css' %}">	
+</head>
+<body>
+	<div class="container-fluid">
+		Branding
+	</div>
+	<div class="container">
+		<div class="col-md-3">
+			{% block sidebar %}
+			{% endblock sidebar %}
+		</div>
+		<div class="col-md-9">
+			{% block content %} 
+			{% endblock content %}
+		</div>
+	</div>
+	<div class="container-fluid">
+		Footer
+	</div>
+</body>
+</html>
+
+<script src="{% static 'js/jquery-3.5.1.js' %}"></script>
+<script src="{% static 'js/bootstrap.min-4.5.js' %}"></script>
+<script src="{% static 'fontawesome5.13/js/all.js' %}"></script>
+{% block javascript %}
+{% endblock javascript %}
