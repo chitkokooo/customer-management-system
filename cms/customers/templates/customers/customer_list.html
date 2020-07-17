@@ -1,8 +1,10 @@
 {% extends "customers/base_generic.html" %}
 
-{% block title %} Home {% endblock title %}
+{% block title %} Customer List {% endblock title %}
 
 {% block content %}
+	<a href="{% url 'customers:customer-create' %}" class="btn btn-primary">Add New Customer</a>
+	<hr>
 	{% if customer_list %}
 	<p>There {{customer_list.count|pluralize:"is,are"}} <b> {{ customer_list.count }} </b>customer{{customer_list.count|pluralize }}.</p>
 	<table class="table table-hover table-bordered">
@@ -15,7 +17,7 @@
 				<th>Remarks</th>
 				<th>Info Created</th>
 				<th>Info Updated</th>
-				<th>Detail</th>
+				<th>View</th>
 				<th>Edit</th>
 				<th>Delete</th>
 			</tr>
@@ -31,13 +33,13 @@
 					<td class="">{{ customer.info_created_at }}</td>
 					<td class="">{{ customer.info_updated_at }}</td>
 					<td>
-						<a href="{% url 'customers:customer-detail' customer.id %}" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i> View</a>
+						<a href="{% url 'customers:customer-detail' customer.id %}" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
 					</td>
 					<td>
-						<a href="{% url 'customers:customer-detail' customer.id %}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i> Edit</a>
+						<a href="{% url 'customers:customer-update' customer.id %}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
 					</td>
 					<td>
-						<a href="{% url 'customers:customer-detail' customer.id %}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Delete</a>
+						<a href="{% url 'customers:customer-delete' customer.id %}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
 					</td>
 				</tr>
 			{% endfor %}

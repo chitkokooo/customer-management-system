@@ -14,7 +14,12 @@
 
 .sidebar {
 	padding: 20px;
-	background-color: red;
+	list-style: none;
+	background-color: skyblue;
+}
+
+.branding h1 a {
+	text-decoration: none;
 }
 
 .footer {

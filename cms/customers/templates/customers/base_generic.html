@@ -3,23 +3,29 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Customers | {% block title %}{% endblock title %}</title>
+	<title>CMS | {% block title %}{% endblock title %}</title>
 	{% load static %}
 	<link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min-4.5.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'fontawesome5.13/css/all.css' %}">	
+	<link rel="stylesheet" type="text/css" href="{% static 'fontawesome5.13/css/all.css' %}">
 </head>
 <body>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12 branding">
-				<h1>Welcome to Customer Management System!</h1>
+				<h1><a href="{% url 'customers:customer-list' %}">Welcome to Customer Management System!</a></h1>
 			</div>
 		</div>
 	</div>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-2 sidebar">
+
+					{% if user.is_authenticated %}
+					<b>Hi: </b><i class="fa fa-user"></i> {{ user.username }}
+					<a href="{% url 'logout' %}?next={{ request.path }}" class="btn btn-block btn-secondary">Logout</a>
+					{% endif %}
+
 				{% block sidebar %}
 				{% endblock sidebar %}
 			</div>

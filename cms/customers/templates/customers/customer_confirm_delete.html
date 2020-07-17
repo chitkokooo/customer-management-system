@@ -1,0 +1,18 @@
+{% extends "customers/base_generic.html" %}
+
+{% block title %}
+	Delete Customer Confirmation: {{ customer.name }}
+{% endblock title %}
+
+{% block content %}
+	<h2>Delete Customer</h2>
+	<hr>
+	<p>Are you sure you want to delete the customer: <b> {{ customer }}?</p>	
+
+	<form action="" method="POST">
+		{% csrf_token %}
+		<input type="submit" name="customer-delete-confirmation" class="btn btn-danger" value="Yes. delete.">
+		<a href="{% url 'customers:customer-list' %}" class="btn btn-outline-secondary">Cancel</a>
+	</form>
+
+{% endblock content %}
