@@ -5,7 +5,18 @@
 {% block content %}
 	{% if customer_list %}
 	<p>There {{customer_list.count|pluralize:"is,are"}} <b> {{ customer_list.count }} </b>customer{{customer_list.count|pluralize }}.</p>
-	<table class="table table-hover">
+	<table class="table table-hover table-bordered">
+		<thead class="thead-dark">
+			<tr>
+				<th>#</th>
+				<th>Name</th>
+				<th>Account</th>
+				<th>Information</th>
+				<th>Remarks</th>
+				<th>Info Created</th>
+				<th>Info Updated</th>
+			</tr>
+		</thead>
 		<tbody>
 			{% for customer in customer_list %}
 				<tr>
@@ -14,8 +25,8 @@
 					<td>{{ customer.account }}</td>
 					<td>{{ customer.information }}</td>
 					<td>{{ customer.remarks }}</td>
-					<td>{{ customer.info_created_at }}</td>
-					<td>{{ customer.info_updated_at }}</td>
+					<td class="">{{ customer.info_created_at }}</td>
+					<td class="">{{ customer.info_updated_at }}</td>
 				</tr>
 			{% endfor %}
 		</tbody>
