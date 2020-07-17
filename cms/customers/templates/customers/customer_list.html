@@ -4,23 +4,27 @@
 
 {% block content %}
 	{% if perms.customers.can_manage_customers %}
-	<a href="{% url 'customers:customer-create' %}" class="btn btn-primary">
+	<a id="add-new-customer" href="{% url 'customers:customer-create' %}" class="btn btn-primary">
 		<i class="fa fa-plus"></i> Add New Customer
 	</a>
 	<hr>
 	{% endif %}
 	{% if customer_list %}
-	<p>There {{customer_list.count|pluralize:"is,are"}} <b> {{ customer_list.count }} </b>customer{{customer_list.count|pluralize }}.</p>
-	<table class="table table-hover">
-		<thead class="thead-dark">
+	<p>There {{customer_list.count|pluralize:"is,are"}} totally <b> {{ customer_list.count }} </b>customer{{customer_list.count|pluralize }}.</p>
+	
+	<input type="text" id="search-name" onkeyup="searchName()" placeholder="Search by name">
+	</input>
+	
+	<table id="customer-table" class="table table-hover">
+		<thead id="customer-table-header" class="thead-dark">
 			<tr>
 				<th>#</th>
 				<th>Name</th>
 				<th>Account</th>
 				<th>Information</th>
 				<th>Remarks</th>
-				<th>Info Created</th>
-				<th>Info Updated</th>
+				<!--<th>Info Created</th>
+				<th>Info Updated</th> -->
 				<th>View</th>
 				{% if perms.customers.can_manage_customers %}
 				<th>Edit</th>
@@ -36,8 +40,8 @@
 					<td>{{ customer.account }}</td>
 					<td>{{ customer.information }}</td>
 					<td>{{ customer.remarks }}</td>
-					<td><span class="badge">{{ customer.info_created_at }}</span></td>
-					<td><span class="badge">{{ customer.info_updated_at }}</span></td>
+					<!-- <td><span class="badge">{{ customer.info_created_at }}</span></td>
+					<td><span class="badge">{{ customer.info_updated_at }}</span></td> -->
 					<td>
 						<a href="{% url 'customers:customer-detail' customer.id %}" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
 					</td>
@@ -58,3 +62,27 @@
 	{% endif %}
 
 {% endblock content %}
+
+{% block javascript %}
+<script>
+	function searchName() {
+		var input, filter, table, tr, td, i, txtValue;
+		input = document.getElementById("search-name");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("customer-table");
+		tr = table.getElementsByTagName("tr");
+
+		for (i = 0; i < tr.length; i++){
+			td = tr[i].getElementsByTagName('td')[1];
+			if (td) {
+				txtValue = td.textContent || td.innerText;
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					tr[i].style.display = "";
+				} else {
+					tr[i].style.display = "none";
+				}
+			}
+		}
+	}
+</script>
+{% endblock javascript %}
