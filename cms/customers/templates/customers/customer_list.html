@@ -1,0 +1,23 @@
+{% extends "customers/base_generic.html" %}
+
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+	{% if customers %}
+	<table>
+		<thead>
+			<tr>
+				<th>header</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for customer in customers %}
+				<tr>{{ customer.name }}</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	{% else %}
+		<p class="text-danger">There is no customer right now.</p>
+	{% endif %}
+
+{% endblock content %}
