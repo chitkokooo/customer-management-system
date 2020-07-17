@@ -1,0 +1,20 @@
+.branding {
+	padding: 20px;
+	color: gray;
+	background-color: black;
+}
+
+.content {
+	padding: 30px;
+}
+
+.sidebar {
+	padding: 20px;
+	background-color: red;
+}
+
+.footer {
+	background-color: black;
+	color: white;
+	padding: 100px;
+}

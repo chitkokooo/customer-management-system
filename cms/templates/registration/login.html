@@ -19,7 +19,7 @@
 
 	<form action="{% url 'login' %}" method="POST">
 		{% csrf_token %}
-		<table>
+		<table class="table table-borderless">
 			<tr>
 				<td>{{ form.username.label_tag }}</td>
 				<td>{{ form.username }}</td>

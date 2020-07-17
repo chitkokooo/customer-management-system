@@ -3,16 +3,20 @@
 {% block title %} Home {% endblock title %}
 
 {% block content %}
-	{% if customers %}
-	<table>
-		<thead>
-			<tr>
-				<th>header</th>
-			</tr>
-		</thead>
+	{% if customer_list %}
+	<p>There {{customer_list.count|pluralize:"is,are"}} <b> {{ customer_list.count }} </b>customer{{customer_list.count|pluralize }}.</p>
+	<table class="table table-hover">
 		<tbody>
-			{% for customer in customers %}
-				<tr>{{ customer.name }}</tr>
+			{% for customer in customer_list %}
+				<tr>
+					<td>{{ forloop.counter }}</td>
+					<td>{{ customer.name }}</td>
+					<td>{{ customer.account }}</td>
+					<td>{{ customer.information }}</td>
+					<td>{{ customer.remarks }}</td>
+					<td>{{ customer.info_created_at }}</td>
+					<td>{{ customer.info_updated_at }}</td>
+				</tr>
 			{% endfor %}
 		</tbody>
 	</table>

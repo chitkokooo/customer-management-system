@@ -11,20 +11,30 @@
 </head>
 <body>
 	<div class="container-fluid">
-		Branding
-	</div>
-	<div class="container">
-		<div class="col-md-3">
-			{% block sidebar %}
-			{% endblock sidebar %}
-		</div>
-		<div class="col-md-9">
-			{% block content %}
-			{% endblock content %}
+		<div class="row">
+			<div class="col-md-12 branding">
+				<h1>Welcome to Customer Management System!</h1>
+			</div>
 		</div>
 	</div>
 	<div class="container-fluid">
-		Footer
+		<div class="row">
+			<div class="col-md-2 sidebar">
+				{% block sidebar %}
+				{% endblock sidebar %}
+			</div>
+			<div class="col-md-10 content">
+				{% block content %}
+				{% endblock content %}
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid footer">
+		<div class="row">
+			<div class="col-md-12">
+				<p class="text-center">Developed by: Chit Ko Ko Oo</p>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
