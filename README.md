@@ -11,12 +11,14 @@ Simple Customer Management System with Basic CRUD Operations written in django
 ## Installation Insturaction ##
 
 - `git clone https://github.com/chitkokooo/customer-management-system`
-- `cd customer-management-system\cms` in GNU\linux (or) `cd customer-management-system/cms` in Windows
-- `touch db.sqlite3` in GNU\Linux (or) create a file named `db.sqlite3` in Windows
+- `cd customer-management-system\cms` in GNU/linux (or) `cd customer-management-system/cms` in Windows
+- `touch db.sqlite3` in GNU/Linux (or) create a file named `db.sqlite3` in Windows
 - `python manage.py makemgrations`
 - `python manage.py migrate`
+- `python manage.py collectstatic`
 - `python manage.py createsuperuser` and enter information as instructions
-- `python manage.py runserver` in web browser
+- `python manage.py runserver`
+- Open `http://127.0.0.1:8000` in web browser
 
 
 ## Creating Groups ##
