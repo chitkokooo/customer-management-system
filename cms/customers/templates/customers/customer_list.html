@@ -37,14 +37,14 @@
 					<!-- <td><span class="badge">{{ customer.info_created_at }}</span></td>
 					<td><span class="badge">{{ customer.info_updated_at }}</span></td> -->
 					<td>
-						<a href="{% url 'customers:customer-detail' customer.id %}" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
+						<a href="{% url 'customers:customer-detail' customer.id %}" class="btn btn-sm btn-outline-primary"><i class="fa fa-eye"></i></a>
 					</td>
 					{% if perms.customers.can_manage_customers %}
 					<td>
-						<a href="{% url 'customers:customer-update' customer.id %}" class="btn btn-sm btn-warning"><i class="fa fa-0.5x fa-edit"></i></a>
+						<a href="{% url 'customers:customer-update' customer.id %}" class="btn btn-sm btn-outline-warning"><i class="fa fa-0.5x fa-edit"></i></a>
 					</td>
 					<td>
-						<a href="{% url 'customers:customer-delete' customer.id %}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+						<a href="{% url 'customers:customer-delete' customer.id %}" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></a>
 					</td>
 					{% endif %}
 				</tr>

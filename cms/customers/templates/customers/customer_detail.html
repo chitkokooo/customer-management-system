@@ -2,7 +2,7 @@
 {% block title %} Customer: {{ customer.name }} {% endblock %}
 
 {% block content %}
-<a href="{% url 'customers:customer-list' %}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Back to customer list</a>
+<a href="{% url 'customers:customer-list' %}" class="btn btn-outline-primary"><i class="fa fa-arrow-left"></i> Back to customer list</a>
 <br><br>
 <h3><b>Customer Name:</b> {{ customer.name }}</h3>
 <hr>
