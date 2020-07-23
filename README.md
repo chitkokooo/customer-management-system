@@ -8,7 +8,7 @@ Simple Customer Management System with Basic CRUD Operations written in django
 [Python](https://python.org) | [Django](https://www.djangoproject.com)
 
 
-## Installation Insturaction ##
+## Installation Instruction ##
 
 - `git clone https://github.com/chitkokooo/customer-management-system`
 - `cd customer-management-system\cms` in GNU/linux (or) `cd customer-management-system/cms` in Windows
