@@ -10,4 +10,6 @@ urlpatterns = [
 	path('create/', views.CustomerCreate.as_view(), name='customer-create'),
 	path('<int:pk>/update/', views.CustomerUpdate.as_view(), name='customer-update'),
 	path('<int:pk>/delete/', views.CustomerDelete.as_view(), name='customer-delete'),
+
+	path('csv/', views.export_as_csv, name="export-csv"),
 ]
