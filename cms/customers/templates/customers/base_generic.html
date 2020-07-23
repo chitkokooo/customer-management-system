@@ -29,13 +29,15 @@
 				<hr>
 				<a href="{% url 'customers:customer-list' %}" class="btn btn-primary btn-block"><i class="fa fa-home"></i> Home</a>
 				{% if perms.customers.can_manage_customers %}
-					<a id="add-new-customer" href="{% url 'customers:customer-create' %}" class="btn btn-outline-success btn-block">
+					<a id="add-new-customer" href="{% url 'customers:customer-create' %}" class="btn btn-warning btn-block">
 						<i class="fa fa-plus"></i> Add New Customer
 					</a>
 					{% if customer_list.count >= 1 %}
 					<a href="{% url 'customers:export-csv' %}" class="btn btn-outline-success btn-block">
-						<i class="fa fa-file"></i> Export as CSV
+						<i class="fa fa-file-csv"></i> Export as CSV
 					</a>
+
+					<a href="{% url 'customers:export-pdf' %}" class="btn btn-outline-success btn-block"><i class="fa fa-file-pdf"></i> Export as PDF</a>
 					{% endif %}
 				{% endif %}
 				{% if user.is_authenticated %}

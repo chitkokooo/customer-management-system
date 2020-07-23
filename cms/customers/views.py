@@ -1,11 +1,14 @@
 import csv
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.template.loader import render_to_string
 from django.urls import reverse, reverse_lazy
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from weasyprint import HTML
 
 from customers.models import Customer
 """
@@ -42,7 +45,7 @@ class CustomerDelete(PermissionRequiredMixin, DeleteView):
 
 @login_required
 def export_as_csv(request):
-	customers = Customer.objects.all()
+	customers = Customer.objects.order_by('name')
 	if customers.count() == 0:
 		return redirect(reverse('customers:customer-list'))
 
@@ -54,4 +57,20 @@ def export_as_csv(request):
 	for customer in customers:
 		csv_data = [customer.name, customer.account, customer.information, customer.remarks]
 		writer.writerow(csv_data)
+	return response_data
+
+
+@login_required
+def export_as_pdf(request):
+	customers = Customer.objects.order_by('name')
+	if customers.count() == 0:
+		return redirect(reverse('customers:customer-list'))
+	# return render(request, 'customers/pdf.html', {'customers': customers})
+	html_string = render_to_string('customers/pdf.html', {'customers': customers})
+	html = HTML(string=html_string)
+	html.write_pdf(target='/tmp/customer_list.pdf')
+	fss = FileSystemStorage('/tmp')
+	with fss.open('customer_list.pdf') as pdf:
+		response_data = HttpResponse(pdf, content_type="application/pdf")
+		response_data['Content-Disposition'] = 'attachment; filename="customer_list.pdf"'
 	return response_data
