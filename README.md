@@ -39,6 +39,9 @@ They have different permissions.
 Login
 ![login](resources/1_login_page.png)
 
+Home Page
+![home](resources/5_home_page.png)
+
 Create new Customer
 ![new_customer](resources/3_add_new_customer.png)
 
