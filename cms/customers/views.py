@@ -68,8 +68,8 @@ def export_as_pdf(request):
 	# return render(request, 'customers/pdf.html', {'customers': customers})
 	html_string = render_to_string('customers/pdf.html', {'customers': customers})
 	html = HTML(string=html_string)
-	html.write_pdf(target='/tmp/customer_list.pdf')
-	fss = FileSystemStorage('/tmp')
+	html.write_pdf(target='tmp_storage/customer_list.pdf')
+	fss = FileSystemStorage('tmp_storage/')
 	with fss.open('customer_list.pdf') as pdf:
 		response_data = HttpResponse(pdf, content_type="application/pdf")
 		response_data['Content-Disposition'] = 'attachment; filename="customer_list.pdf"'
