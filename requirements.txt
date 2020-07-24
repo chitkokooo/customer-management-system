@@ -15,3 +15,5 @@ sqlparse==0.3.1
 tinycss2==1.0.2
 WeasyPrint==51
 webencodings==0.5.1
+whitenoise==5.1.0
+
