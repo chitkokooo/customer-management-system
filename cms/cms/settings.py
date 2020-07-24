@@ -25,7 +25,7 @@ SECRET_KEY = '$q86t9!1oypz&u5hb^1cah8f)(w-v5k@hl#ic-20w%s(e%-5l$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', 'customer.local',]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'customers.local',]
 
 
 # Application definition
@@ -129,7 +129,7 @@ STATIC_ROOT = 'static-files/'
 LOGIN_REDIRECT_URL = '/'
 
 # For compression and caching support
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # CSRF_COOKIE_SECURE = True
 
