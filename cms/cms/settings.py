@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '$q86t9!1oypz&u5hb^1cah8f)(w-v5k@hl#ic-20w%s(e%-5l$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'customer.local',]
 
 
 # Application definition
@@ -124,3 +124,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = 'static-files/'
 
 LOGIN_REDIRECT_URL = '/'
+
+# CSRF_COOKIE_SECURE = True
+
