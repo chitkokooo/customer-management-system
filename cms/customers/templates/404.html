@@ -1,0 +1,11 @@
+{% extends "customers/base_generic.html" %}
+
+{% block title %}
+    404 Not Found
+{% endblock title %}
+
+{% block content %}
+	<h3>Code: 404</h3>
+    <p class="text-danger">The page you requested wasn't found.</p>
+    <a href="{% url 'customers:customer-list' %}" class="btn btn-primary"><i class="fa fa-home"></i>  Go Home.</a>
+{% endblock content %}

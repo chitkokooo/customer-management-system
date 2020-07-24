@@ -129,7 +129,7 @@ STATIC_ROOT = 'static-files/'
 LOGIN_REDIRECT_URL = '/'
 
 # For compression and caching support
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # CSRF_COOKIE_SECURE = True
 

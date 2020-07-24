@@ -1,3 +1,4 @@
+from django.conf.urls import handler403, handler404, handler500
 from django.urls import path, include
 from . import views
 
@@ -14,3 +15,7 @@ urlpatterns = [
 	path('csv/', views.export_as_csv, name="export-csv"),
     path('pdf/', views.export_as_pdf , name="export-pdf"),
 ]
+
+handler403 = views.error_403
+handler404 = views.error_404
+handler500 = views.error_500
