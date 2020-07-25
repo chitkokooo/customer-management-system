@@ -5,7 +5,7 @@ Simple Customer Management System with Basic CRUD Operations written in django
 
 ## Resources ##
 
-[Python](https://python.org) | [Django](https://www.djangoproject.com)
+[Python](https://python.org) | [Django](https://www.djangoproject.com) | [WeasyPrint](https://weasyprint.org/)
 
 
 ## Installation Instruction ##
@@ -19,6 +19,21 @@ Simple Customer Management System with Basic CRUD Operations written in django
 - `python manage.py createsuperuser` and enter information as instructions
 - `python manage.py runserver`
 - Open `http://127.0.0.1:8000` in web browser
+
+## WeasyPrint Installation  and Configuration Instruction for Microsoft Windows ##
+
+* I used `weasyprint` for pdf exporting function and it will be needed additional steps for windows machine.
+
+- Install weasyprint module: `pip install weasyprint`
+- Check installed python architecture 32bit(ix86) or 64bits (x64) with `python --version --version`
+- Dowload [msys2xxxx.exe](https://www.msys2.org/) based on python architecture and install as their descriptions.
+- Download and install [GTK3 Runtime](https://sourceforge.net/projects/gtk-win/files/latest/download)
+- add `msys2` and `gtk3 runtime` bin path to system environment `PATH`, so they can be accessed from anywhere within system.
+- You can test with following command `python -m weasyprint http://weasyprint.org weasyprint.pdf` to check weasyprint is working or not.
+
+#### Additional Information ###
+
+Moreover, you can also try [django-weasyprint](https://github.com/fdemmer/django-weasyprint) package.
 
 
 ## Creating Groups ##
