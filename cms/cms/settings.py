@@ -131,5 +131,8 @@ LOGIN_REDIRECT_URL = '/'
 # For compression and caching support
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+# For compression but no caching support
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
 # CSRF_COOKIE_SECURE = True
 
