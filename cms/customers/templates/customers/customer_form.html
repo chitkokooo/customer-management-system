@@ -1,16 +1,24 @@
 {% extends "customers/base_generic.html" %}
 
 {% block title %}
-	Update Customer: {{ customer }}
+	{% if customer %}
+		Update Customer: {{ customer.name }}
+	{% else %}
+		Add New Customer
+	{% endif %}
 {% endblock title %}
 
 {% block content %}
-	<h3>Customer: {{ customer }}</h3>
+	<h3>Customer: {{ customer.name }}</h3>
 	<hr>
 	<form action="" method="POST">
 		{% csrf_token %}
-		<table>{{ form.as_table }}</table>
-		<input type="submit" name="update-customer" value="Save" class="btn btn-warning">
+		<table class="table table-hover table-borderless">{{ form.as_table }}</table>
+		{% if customer %}
+		<input type="submit" name="update-customer" value="Update" class="btn btn-warning">
+		{% else %}
+		<input type="submit" name="new-customer" value="Add" class="btn btn-warning">
+		{% endif %}
 		<a href="{% url 'customers:customer-list' %}" class="btn btn-outline-secondary">
 			Cancel
 		</a>

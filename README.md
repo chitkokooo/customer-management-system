@@ -4,11 +4,9 @@ Simple Customer Management System with Basic CRUD Operations written in django.
 Customer list can be exported as `csv` file or `pdf` file. 
 
 
-
 ## Resources ##
 
 [Python](https://python.org) | [Django](https://www.djangoproject.com) | [WeasyPrint](https://weasyprint.org/) | [whitenoise](https://github.com/evansd/whitenoise)
-
 
 
 ## Installation Instruction ##
@@ -24,7 +22,6 @@ Customer list can be exported as `csv` file or `pdf` file.
 - Open `http://127.0.0.1:8000` in web browser
 
 
-
 ## WeasyPrint Installation  and Configuration Instruction for Microsoft Windows ##
 
 - I used `weasyprint` for pdf exporting function and it will be needed additional steps for windows machine.
@@ -36,12 +33,9 @@ Customer list can be exported as `csv` file or `pdf` file.
 - You can test with following command `python -m weasyprint http://weasyprint.org weasyprint.pdf` to check whether weasyprint is working or not.
 
 
-
 #### Additional Information ###
 
 Moreover, you can also try [django-weasyprint](https://github.com/fdemmer/django-weasyprint) package.
-
-
 
 ## Creating Groups ##
 Create a group named `Authorizers` and give permissions `customers | customer | Customer CRUD Operations`
@@ -51,11 +45,9 @@ Create a group named `Tellers` and give permissions `customers | customer | Can 
 ![teller_group](resources/4_tellers_group.png)
 
 
-
 ## Creating Users ##
 Add a user and add to `Tellers` Group, and Add a user and add to `Authorizers` Group.
 They have different permissions.
-
 
 
 ## Some Screenshots ##
@@ -66,9 +58,11 @@ Login
 Home Page
 ![home](resources/5_home_page.png)
 
-Create new Customer
+Create New Customer
 ![new_customer](resources/3_add_new_customer.png)
 
+Update Customer
+![update_customer](resources/6_update_customer.png)
 
 
 ## About Me ##
