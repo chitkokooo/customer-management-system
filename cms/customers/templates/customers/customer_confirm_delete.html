@@ -11,8 +11,10 @@
 
 	<form action="" method="POST">
 		{% csrf_token %}
-		<input type="submit" name="customer-delete-confirmation" class="btn btn-danger" value="Yes. delete.">
-		<a href="{% url 'customers:customer-list' %}" class="btn btn-outline-secondary">Cancel</a>
+		<button type="submit" name="customer-delete-confirmation" class="btn btn-danger">
+            <i class="fa fa-trash"></i> Yes, Delete!
+        </button>
+		<a href="{% url 'customers:customer-list' %}" class="btn btn-outline-secondary"><i class="fa fa-times"></i> Cancel</a>
 	</form>
 
 {% endblock content %}

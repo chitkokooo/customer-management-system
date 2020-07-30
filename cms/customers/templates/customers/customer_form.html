@@ -15,12 +15,16 @@
 		{% csrf_token %}
 		<table class="table table-hover table-borderless">{{ form.as_table }}</table>
 		{% if customer %}
-		<input type="submit" name="update-customer" value="Update" class="btn btn-warning">
+		<button type="submit" name="update-customer" class="btn btn-warning">
+			<i class="fa fa-check"></i> Update
+		</button>
 		{% else %}
-		<input type="submit" name="new-customer" value="Add" class="btn btn-warning">
+		<button type="submit" name="new-customer" class="btn btn-warning">
+			<i class="fa fa-check"></i> Add
+		</button>
 		{% endif %}
 		<a href="{% url 'customers:customer-list' %}" class="btn btn-outline-secondary">
-			Cancel
+			<i class="fa fa-times"></i> Cancel
 		</a>
 	</form>
 {% endblock content %}
