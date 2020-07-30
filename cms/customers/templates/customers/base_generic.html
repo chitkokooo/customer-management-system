@@ -5,8 +5,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>CMS | {% block title %}{% endblock title %}</title>
 	{% load static %}
+	<link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min-4.5.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-materia.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'fontawesome5.13/css/all.css' %}">
 </head>
 <body>
@@ -41,7 +42,7 @@
 					<a href="{% url 'customers:export-pdf' %}" class="btn btn-outline-success btn-block"><i class="fa fa-file-pdf"></i> Export as PDF</a>
 				{% endif %}
 				{% if user.is_authenticated %}
-				<a href="{% url 'logout' %}?next={{ request.path }}" class="btn btn-outline-secondary btn-block"><i class="fa fa-arrow-right"></i> Logout</a>
+				<a href="{% url 'logout' %}?next={{ request.path }}" class="btn btn-secondary btn-block"><i class="fa fa-arrow-right"></i> Logout</a>
 				{% endif %}
 			{% block sidebar %}
 			{% endblock sidebar %}
