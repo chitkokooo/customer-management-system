@@ -1,0 +1,15 @@
+{% extends 'customers/base_generic.html' %}
+
+{% block title %} Import CSV {% endblock title %}
+
+{% block content %}
+	<h3></h3>
+	<form enctype="multipart/form-data" method="POST" class="form">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit" name="customer-csv-import" class="btn btn-primary">
+            <i class="fa fa-check"></i> Import CSV
+        </button>
+	</form>
+
+{% endblock content %}
