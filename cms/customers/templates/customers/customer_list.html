@@ -8,7 +8,36 @@
 	
 	<input type="text" id="search-name" onkeyup="searchName()" placeholder="Search by name">
 	</input>
+
 	
+	{% if perms.customers.can_manage_customers %}
+	<div class="text-right text-danger">
+		<button type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#deleteAllModal">Delete All</button>
+	</div>
+	
+	<!-- Modal -->
+	<div class="modal fade" id="deleteAllModal" tabindex="-1" role="dialog" aria-labelledby="deleteAllModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="deleteAllModalLabel">Confirmation!</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        <p class="text-danger">Are you sure you want to delete all customers? This cannot be undone.</p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+	        <a href="{% url 'customers:delete-all' %}" class="btn btn-danger"><i class="fa fa-trash"></i> Yes, Delete All Customers!</a>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	{% endif %}  <!-- end of delete all customer permission -->
+
+
 	<table id="customer-table" class="table table-hover">
 		<thead id="customer-table-header" class="thead-dark">
 			<tr>
@@ -29,7 +58,7 @@
 		<tbody>
 			{% for customer in customer_list %}
 				<tr>
-					<td>{{ forloop.counter }}</td>
+					<th>{{ forloop.counter }}</th>
 					<td>{{ customer.name }}</td>
 					<td>{{ customer.account }}</td>
 					<td>{{ customer.information }}</td>
@@ -55,6 +84,8 @@
 		<p class="text-danger">There is no customer right now.</p>
 	{% endif %}
 
+<button id="goToTopButton" onclick="topFunction();">Top</button>
+
 {% endblock content %}
 
 {% block javascript %}
@@ -78,5 +109,20 @@
 			}
 		}
 	}
+
+	// Go to top
+	mybutton = document.getElementById("goToTopButton");
+	window.onscroll = function() {
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			mybutton.style.display = "block";
+		} else {
+			mybutton.style.display = "none";
+		}
+	}
+	function topFunction() {
+		document.body.scrollTop = 0;  // for safari
+		document.documentElement.scrollTop = 0;  // for chrome, firefox, ie and opera
+	}
+
 </script>
 {% endblock javascript %}

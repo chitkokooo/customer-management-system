@@ -1,5 +1,5 @@
 import csv
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
@@ -41,6 +41,12 @@ class CustomerDelete(PermissionRequiredMixin, DeleteView):
 	permission_required = 'customers.can_manage_customers'
 	model = Customer
 	success_url = reverse_lazy('customers:customer-list')
+
+
+@permission_required('customers.can_manage_customers')
+def delete_all_customers(request):
+	Customer.objects.all().delete()
+	return redirect(reverse('customers:customer-list'))
 
 
 @login_required
