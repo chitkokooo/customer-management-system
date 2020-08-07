@@ -13,11 +13,9 @@ Customer list can be exported as `csv` file or `pdf` file.
 
 - `git clone https://github.com/chitkokooo/customer-management-system.git`
 - `cd customer-management-system`
-- Create virtual environment `virtualenv customer-management-system .`
 - Activate virtual environment `source Scripts/activate` in GNU/Linux (or) `Scripts\activate.bat` in Windows
 - Install necessary packages `pip install -r requirements.txt`
 - `cd cms`
-- `touch db.sqlite3` in GNU/Linux (or) create a file named `db.sqlite3` in Windows
 - `python manage.py makemgrations`
 - `python manage.py migrate`
 - `python manage.py collectstatic`
