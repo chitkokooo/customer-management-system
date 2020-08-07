@@ -78,9 +78,9 @@ def export_as_csv(request):
 
 	response_data = HttpResponse(content_type='text/csv')
 	response_data['Content-Disposition'] = 'attachment; filename="customer_list.csv"'
-	csv_headers = ['Name', 'Account', 'Information', 'Remarks']
+	# csv_headers = ['Name', 'Account', 'Information', 'Remarks']
 	writer = csv.writer(response_data)
-	writer.writerow(csv_headers)
+	# writer.writerow(csv_headers)
 	for customer in customers:
 		csv_data = [customer.name, customer.account, customer.information, customer.remarks]
 		writer.writerow(csv_data)
