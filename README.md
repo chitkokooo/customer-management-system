@@ -66,6 +66,11 @@ Create New Customer
 Update Customer
 ![update_customer](resources/6_update_customer.png)
 
+`python manage.py show_urls` from `django-extensions` package
+![show_urls](resources/7_python_manage.py_show_urls.png)
+
+Delete All Customers
+[delete_all](resources/8_delete_all.png)
 
 ## About Me ##
 
