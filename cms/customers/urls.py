@@ -4,7 +4,6 @@ from . import views
 
 app_name = "customers"
 urlpatterns = [
-	# path('', views.index, name="index"),
 	path('', views.CustomerListView.as_view(), name="customer-list"),
 	path('<int:pk>/', views.CustomerDetialView.as_view(), name="customer-detail"),
 
@@ -13,6 +12,7 @@ urlpatterns = [
 	path('<int:pk>/delete/', views.CustomerDelete.as_view(), name='customer-delete'),
     path('delete-all/', views.delete_all_customers, name="delete-all"),
 
+    path('import-csv/', views.import_as_csv, name="import-csv"),
 	path('export-csv/', views.export_as_csv, name="export-csv"),
     path('export-pdf/', views.export_as_pdf , name="export-pdf"),
 ]

@@ -1,5 +1,10 @@
 import csv
+<<<<<<< HEAD
 from django.contrib.auth.decorators import login_required, permission_required
+=======
+import io
+from django.contrib.auth.decorators import login_required
+>>>>>>> 8361227414fb9c1c5f7c9b32164bd33e9b8b2093
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
@@ -10,6 +15,7 @@ from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from weasyprint import HTML
 
+from customers.forms import CSVUploadFileForm
 from customers.models import Customer
 """
 def index(request):
@@ -47,6 +53,29 @@ class CustomerDelete(PermissionRequiredMixin, DeleteView):
 def delete_all_customers(request):
 	Customer.objects.all().delete()
 	return redirect(reverse('customers:customer-list'))
+
+
+@login_required
+def import_as_csv(request):
+	if request.method == 'POST':
+		form = CSVUploadFileForm(request.POST, request.FILES)
+		if form.is_valid():
+			#handle_csv_import(request.FILES['csv_file'])
+			# return redirect(reverse('customers:customer-list'))
+			return HttpResponse(handle_csv_import(request.FILES['csv_file']))
+	else:
+		form = CSVUploadFileForm()
+	return render(request, 'customers/csv_upload_form.html', {'form': form})
+
+
+def handle_csv_import(csv_file):
+	csv_file.seek(0)  # go to starting point
+	rows = csv.DictReader(io.StringIO(csv_file.read().decode('utf-8')))
+	for row in rows:
+		row = ', '.join(row)
+		# customer = Customer.objects.create(name=row[1], account=row[2], information=row[3], remarks=row[4])
+		# customer.save()
+
 
 
 @login_required
