@@ -1,10 +1,7 @@
 import csv
-<<<<<<< HEAD
-from django.contrib.auth.decorators import login_required, permission_required
-=======
 import io
-from django.contrib.auth.decorators import login_required
->>>>>>> 8361227414fb9c1c5f7c9b32164bd33e9b8b2093
+from weasyprint import HTML
+from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
@@ -13,15 +10,10 @@ from django.template.loader import render_to_string
 from django.urls import reverse, reverse_lazy
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from weasyprint import HTML
 
 from customers.forms import CSVUploadFileForm
 from customers.models import Customer
-"""
-def index(request):
-	customers = Customer.objects.all()
-	return render(request, 'customers/index.html', {'customers': customers})
-"""
+
 
 class CustomerListView(LoginRequiredMixin, generic.ListView):
 	model = Customer
