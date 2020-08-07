@@ -5,6 +5,7 @@ cffi==1.14.0
 cssselect2==0.3.0
 defusedxml==0.6.0
 Django==3.0.8
+django-extensions==3.0.4
 html5lib==1.1
 Pillow==7.2.0
 pycparser==2.20
