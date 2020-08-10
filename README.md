@@ -70,7 +70,7 @@ Update Customer
 ![show_urls](resources/7_python_manage.py_show_urls.png)
 
 Delete All Customers
-[delete_all](resources/8_delete_all.png)
+![delete_all](resources/8_delete_all.png)
 
 ## About Me ##
 
