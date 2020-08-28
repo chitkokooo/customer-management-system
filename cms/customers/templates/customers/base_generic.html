@@ -33,9 +33,9 @@
 					<a id="add-new-customer" href="{% url 'customers:customer-create' %}" class="btn btn-warning btn-block">
 						<i class="fa fa-plus"></i> Add New Customer
 					</a>
-					<a href="{% url 'customers:import-csv' %}" class="btn btn-outline-success btn-block">
+					<!-- <a href="#" class="btn btn-outline-success btn-block">
 						<i class="fa fa-file-csv"></i> Import CSV
-					</a>
+					</a> -->
 				{% endif %}
 				{% if customer_list.count >= 1 %}
 					<a href="{% url 'customers:export-csv' %}" class="btn btn-outline-success btn-block">
@@ -59,7 +59,7 @@
 	<div class="container-fluid footer">
 		<div class="row">
 			<div class="col-md-12">
-				<p class="text-center developer">Developed by: Chit Ko Ko Oo</p>
+				<p class="text-center developer">Developed by: <span class="developer-name">Chit Ko Ko Oo</span></p>
 			</div>
 		</div>
 	</div>
