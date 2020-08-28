@@ -9,21 +9,22 @@
 {% endblock title %}
 
 {% block content %}
+{% load crispy_forms_tags %}
 	<h3>Customer: {{ customer.name }}</h3>
 	<hr>
-	<form action="" method="POST">
+	<form action="" method="POST" class="form">
 		{% csrf_token %}
-		<table class="table table-hover table-borderless">{{ form.as_table }}</table>
+		{{ form|crispy }}
 		{% if customer %}
-		<button type="submit" name="update-customer" class="btn btn-warning">
+		<button type="submit" name="update-customer" class="btn btn-lg btn-warning">
 			<i class="fa fa-check"></i> Update
 		</button>
 		{% else %}
-		<button type="submit" name="new-customer" class="btn btn-warning">
+		<button type="submit" name="new-customer" class="btn btn-lg btn-warning">
 			<i class="fa fa-check"></i> Add
 		</button>
 		{% endif %}
-		<a href="{% url 'customers:customer-list' %}" class="btn btn-outline-secondary">
+		<a href="{% url 'customers:customer-list' %}" class="btn btn-lg btn-outline-secondary">
 			<i class="fa fa-times"></i> Cancel
 		</a>
 	</form>

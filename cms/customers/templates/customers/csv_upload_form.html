@@ -3,10 +3,11 @@
 {% block title %} Import CSV {% endblock title %}
 
 {% block content %}
+{% load crispy_forms_tags %}
 	<h3></h3>
 	<form enctype="multipart/form-data" method="POST" class="form">
 		{% csrf_token %}
-		{{ form.as_p }}
+		{{ form|crispy }}
 		<button type="submit" name="customer-csv-import" class="btn btn-primary">
             <i class="fa fa-check"></i> Import CSV
         </button>

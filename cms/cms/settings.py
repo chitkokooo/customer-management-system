@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
+    'crispy_forms',
     'customers',
 ]
 
@@ -132,6 +134,8 @@ LOGIN_REDIRECT_URL = '/'
 
 # For compression but no caching support
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 SESSION_SAVE_EVERY_REQUEST = True
 
