@@ -52,7 +52,6 @@ html {
     color: #818181;
 }
 
-<<<<<<< HEAD
 #goToTopButton {
 	display: none;
 	position: fixed;
@@ -74,8 +73,8 @@ html {
 #goToTopButton:hover {
 	border: solid 1px;
 	box-shadow: 0 2px 25px rgba(255, 0, 130, 0.7);
-=======
+}
+
 .developer-name {
 	color: #6a5a5a;
->>>>>>> 3844044a3764aa6a8d7955bc3432913b7316b3e9
 }
