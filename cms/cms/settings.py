@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '$q86t9!1oypz&u5hb^1cah8f)(w-v5k@hl#ic-20w%s(e%-5l$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'customers.local', '10.17.16.155']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '10.17.16.155']
 
 
 # Application definition
@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'django_extensions',
+    'crispy_forms',
     'customers',
     'django_extensions',
 ]
@@ -111,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Yangon'  # 'UTC'
 
 USE_I18N = True
 
@@ -135,5 +136,8 @@ LOGIN_REDIRECT_URL = '/'
 # For compression but no caching support
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
-# CSRF_COOKIE_SECURE = True
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+SESSION_SAVE_EVERY_REQUEST = True
+
+SESSION_COOKIE_AGE = 7200  # logout inactive after 2 hours

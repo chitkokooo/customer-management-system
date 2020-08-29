@@ -19,13 +19,17 @@
 		<div class="col-md-2"><b>Remarks:</b></div>
 		<div class="col-md-10">{{ customer.remarks }}</div>
 	</div>
+
+	{% load tz %}
+	
 	<div class="row">
 		<div class="col-md-2"><b>Info Created Time:</b></div>
-		<div class="col-md-10">{{ customer.info_created_at }}</div>
+		<div class="col-md-10">{{ customer.info_created_at|localtime }}</div>
 	</div>
 	<div class="row">
 		<div class="col-md-2"><b>Info Updated Time:</b></div>
-		<div class="col-md-10">{{ customer.info_updated_at }}</div>
+		<div class="col-md-10">{{ customer.info_updated_at|localtime }}</div>
 	</div>
+
 </div>
 {% endblock content %}
