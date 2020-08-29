@@ -12,9 +12,9 @@ urlpatterns = [
 	path('<int:pk>/delete/', views.CustomerDelete.as_view(), name='customer-delete'),
     path('delete-all/', views.delete_all_customers, name="delete-all"),
 
-	# path('import_csv/', views.import_as_csv, name="import-csv"),
-	path('export_csv/', views.export_as_csv, name="export-csv"),
-    path('export_pdf/', views.export_as_pdf , name="export-pdf"),
+	# path('import-csv/', views.import_as_csv, name="import-csv"),
+	path('export-csv/', views.export_as_csv, name="export-csv"),
+    path('export-pdf/', views.export_as_pdf , name="export-pdf"),
 ]
 
 handler403 = views.error_403
