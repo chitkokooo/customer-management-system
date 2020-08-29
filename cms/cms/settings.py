@@ -139,4 +139,4 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 SESSION_SAVE_EVERY_REQUEST = True
 
-SESSION_COOKIE_AGE = 7200  # logout inactive after 2 hours
+SESSION_COOKIE_AGE = 3600  # logout inactive after 1 hour

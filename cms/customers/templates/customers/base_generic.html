@@ -22,9 +22,9 @@
 		<div class="row">
 			<div id="sidebar" class="col-md-2 sidebar">
 				<p class="text-center border">
-					Welcome:				
 					{% if user.is_authenticated %}
-					<b class="">{{ user.username }}</b>!
+					<b>Welcome:</b> {{ user.username }}!<br><br>
+					<b>Last Login:</b> <span class="badge">{{ user.last_login }}</span>
 					{% endif %}
 				</p>
 				<hr>
