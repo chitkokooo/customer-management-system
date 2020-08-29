@@ -14,6 +14,21 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12 branding">
+				{% if user.is_authenticated %}
+				<div class="text-right">
+					<div class="dropdown show">
+						<a class="dropdown-toggle" href="#" role="button" id="userdropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<b>Welcome:</b> {{ user.username }}!
+						</a>
+					  
+						<div class="dropdown-menu" aria-labelledby="userdropdown">
+							<p class="dropdown-item"><b>Last Login:</b><br> {{ user.last_login }}</p>
+							<a href="{% url 'customers:change-password' %}" class="dropdown-item"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a>
+							<a href="{% url 'logout' %}?next={{ request.path }}" class="dropdown-item"><i class="fa fa-sign-out-alt" aria-hidden="true"></i> Logout</a>
+						</div>
+					  </div>
+				</div>
+				{% endif %}
 				<h1><a href="{% url 'customers:customer-list' %}">Welcome to Customer Management System!</a></h1>
 			</div>
 		</div>
@@ -21,13 +36,6 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div id="sidebar" class="col-md-2 sidebar">
-				<p class="text-center border">
-					{% if user.is_authenticated %}
-					<b>Welcome:</b> {{ user.username }}!<br><br>
-					<b>Last Login:</b> <span class="badge">{{ user.last_login }}</span>
-					{% endif %}
-				</p>
-				<hr>
 				<a href="{% url 'customers:customer-list' %}" class="btn btn-primary btn-block"><i class="fa fa-home"></i> Home</a>
 				{% if perms.customers.can_manage_customers %}
 					<a id="add-new-customer" href="{% url 'customers:customer-create' %}" class="btn btn-warning btn-block">
@@ -41,12 +49,9 @@
 					<a href="{% url 'customers:export-csv' %}" class="btn btn-outline-success btn-block">
 						<i class="fa fa-file-csv"></i> Export as CSV
 					</a>
-
 					<a href="{% url 'customers:export-pdf' %}" class="btn btn-outline-success btn-block"><i class="fa fa-file-pdf"></i> Export as PDF</a>
 				{% endif %}
-				{% if user.is_authenticated %}
-				<a href="{% url 'logout' %}?next={{ request.path }}" class="btn btn-secondary btn-block"><i class="fa fa-arrow-right"></i> Logout</a>
-				{% endif %}
+
 			{% block sidebar %}
 			{% endblock sidebar %}
 			</div>
@@ -67,7 +72,8 @@
 </html>
 
 <script src="{% static 'js/jquery-3.5.1.js' %}"></script>
-<script src="{% static 'js/bootstrap.min-4.5.js' %}"></script>
+<!-- <script src="{% static 'js/popper.js' %}"></script> -->
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 <script src="{% static 'fontawesome5.13/js/all.js' %}"></script>
 {% block javascript %}
 {% endblock javascript %}
