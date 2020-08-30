@@ -2,7 +2,9 @@ html {
 	scroll-behavior: smooth;
 }
 .login-box {
-	
+	border: solid 3px #7fbbf7;
+	margin-top: 30px;
+	padding: 20px;
 }
 
 .branding {

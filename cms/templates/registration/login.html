@@ -1,36 +1,60 @@
-{% extends "customers/base_generic.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>CMS | Login</title>
+	{% load static %}
+	{% load crispy_forms_tags %}
+	<link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-materia.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fontawesome5.13/css/all.css' %}">
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12 branding">
+				{% if user.is_authenticated %}
+				<div class="text-right">
+					<div class="dropdown show">
+						<a class="dropdown-toggle" href="#" role="button" id="userdropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<b>Welcome:</b> {{ user.username }}!
+						</a>
+					  
+						<div class="dropdown-menu" aria-labelledby="userdropdown">
+							<p class="dropdown-item"><b>Last Login:</b><br> {{ user.last_login }}</p>
+							<a href="{% url 'customers:change-password' %}" class="dropdown-item"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a>
+							<a href="{% url 'logout' %}?next={{ request.path }}" class="dropdown-item"><i class="fa fa-sign-out-alt" aria-hidden="true"></i> Logout</a>
+						</div>
+					  </div>
+				</div>
+				{% endif %}
+				<h1><a href="{% url 'customers:customer-list' %}">Welcome to Customer Management System!</a></h1>
+			</div>
+		</div>
+		<div class="row justify-content-md-center">
+			<div class="col-md-4 align-self-center login-box">
+				{% if form.errors %}
+					<p class="text-danger">Your username and password didn't match. Please try again.</p>
+				{% endif %}
+				
+				{% if next %}
+					{% if user.is_authenticated %}
+						<p class="text-danger">Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
+					{% else %}
+						<p><b>Please login to see this page.</b></p>
+					{% endif %}
+				{% endif %}
 
-{% block title %}
-	Login
-{% endblock title %}
-
-{% block content %}
-	{% if form.errors %}
-		<p class="text-danger">Your username and password didn't match. Please try again.</p>
-	{% endif %}
-	
-	{% if next %}
-		{% if user.is_authenticated %}
-			<p class="text-danger">Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
-		{% else %}
-			<p><b>Please login to see this page.</b></p>
-		{% endif %}
-	{% endif %}
-
-	<form action="{% url 'login' %}" method="POST" class="login-box">
-		{% csrf_token %}
-		<table class="">
-			<tr>
-				<td>{{ form.username.label_tag }}</td>
-				<td>{{ form.username }}</td>
-			</tr>
-			<tr>
-				<td>{{ form.password.label_tag }}</td>
-				<td>{{ form.password }}</td>
-			</tr>
-		</table>
-		<input type="submit" name="submit" value="Login" class="btn btn-primary">
-		<input type="hidden" name="next" value="{{ next }}">
-	</form>
-
-{% endblock content %}
+				<form action="{% url 'login' %}" method="POST" class="form-control">
+					{% csrf_token %}
+					{{ form|crispy }}
+					<input type="submit" name="submit" value="Login" class="btn btn-primary">
+					<input type="hidden" name="next" value="{{ next }}">
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
