@@ -27,14 +27,14 @@
 							<a href="{% url 'customers:change-password' %}" class="dropdown-item"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a>
 							<a href="{% url 'logout' %}?next={{ request.path }}" class="dropdown-item"><i class="fa fa-sign-out-alt" aria-hidden="true"></i> Logout</a>
 						</div>
-					  </div>
+					</div>
 				</div>
 				{% endif %}
 				<h1><a href="{% url 'customers:customer-list' %}">Welcome to Customer Management System!</a></h1>
 			</div>
 		</div>
 		<div class="row justify-content-md-center">
-			<div class="col-md-4 align-self-center login-box">
+			<div class="col-md-3 align-self-center login-box">
 				{% if form.errors %}
 					<p class="text-danger">Your username and password didn't match. Please try again.</p>
 				{% endif %}
@@ -47,7 +47,7 @@
 					{% endif %}
 				{% endif %}
 
-				<form action="{% url 'login' %}" method="POST" class="form-control">
+				<form action="{% url 'login' %}" method="POST" class="form">
 					{% csrf_token %}
 					{{ form|crispy }}
 					<input type="submit" name="submit" value="Login" class="btn btn-primary">
