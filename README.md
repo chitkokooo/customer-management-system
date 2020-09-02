@@ -72,8 +72,7 @@ Update Customer
 Delete All Customers
 ![delete_all](resources/8_delete_all.png)
 
-
-Delete All Customers
+Change Password
 ![change_password](resources/9_change_password.png)
 
 ## About Me ##
