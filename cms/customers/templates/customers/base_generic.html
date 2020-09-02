@@ -16,13 +16,14 @@
 			<div class="col-md-12 branding">
 				{% if user.is_authenticated %}
 				<div class="text-right">
-					<div class="dropdown show">
+					<div class="dropdown">
 						<a class="dropdown-toggle" href="#" role="button" id="userdropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<b>Welcome:</b> {{ user.username }}!
+							<b>Welcome:</b> {{ user.username }}
 						</a>
 					  
 						<div class="dropdown-menu" aria-labelledby="userdropdown">
-							<p class="dropdown-item"><b>Last Login:</b><br> {{ user.last_login }}</p>
+							<p class="dropdown-item"><i class="fa fa-calendar" aria-hidden="true"></i> Last Login: {{ user.last_login }}</p>
+							<div class="dropdown-divider"></div>
 							<a href="{% url 'customers:change-password' %}" class="dropdown-item"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a>
 							<a href="{% url 'logout' %}?next={{ request.path }}" class="dropdown-item"><i class="fa fa-sign-out-alt" aria-hidden="true"></i> Logout</a>
 						</div>
