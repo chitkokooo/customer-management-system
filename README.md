@@ -6,7 +6,7 @@ Customer list can be exported as `csv` file or `pdf` file.
 
 ## Resources ##
 
-[Python](https://python.org) | [Django](https://www.djangoproject.com) | [WeasyPrint](https://weasyprint.org/) | [whitenoise](https://github.com/evansd/whitenoise) | [django-extensions](https://django-extensions.readthedocs.io/)
+[Python](https://python.org) | [Django](https://www.djangoproject.com) | [WeasyPrint](https://weasyprint.org/) | [whitenoise](https://github.com/evansd/whitenoise) | [django-extensions](https://django-extensions.readthedocs.io/) | [django-sslserver](https://github.com/teddziuba/django-sslserver)
 
 
 ## Installation Instruction ##
@@ -20,8 +20,8 @@ Customer list can be exported as `csv` file or `pdf` file.
 - `python manage.py migrate`
 - `python manage.py collectstatic`
 - `python manage.py createsuperuser` and enter information as instructions
-- `python manage.py runserver`
-- Open `http://127.0.0.1:8000` in web browser
+- `python manage.py runserver` or `python manage.py runsslserver` for `https`
+- Open `http://127.0.0.1:8000`  or `https://127.0.0.1:8000` in web browser
 
 
 ## WeasyPrint Installation  and Configuration Instruction for Microsoft Windows ##
