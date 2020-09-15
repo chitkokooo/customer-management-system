@@ -6,7 +6,7 @@ Customer list can be exported as `csv` file or `pdf` file.
 
 ## Resources ##
 
-[Python](https://python.org) | [Django](https://www.djangoproject.com) | [WeasyPrint](https://weasyprint.org/) | [whitenoise](https://github.com/evansd/whitenoise) | [django-extensions](https://django-extensions.readthedocs.io/) | [django-sslserver](https://github.com/teddziuba/django-sslserver)
+[Python](https://python.org) | [Django](https://www.djangoproject.com) | [WeasyPrint](https://weasyprint.org/) | [whitenoise](https://github.com/evansd/whitenoise) | [django-extensions](https://django-extensions.readthedocs.io/) | [django-sslserver](https://github.com/teddziuba/django-sslserver) | [django-debug-toolbar](https://django-debug-toolbar.readthedocs.io/en/latest/index.html) | [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/)
 
 
 ## Installation Instruction ##
