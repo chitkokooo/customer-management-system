@@ -5,6 +5,7 @@ html {
 	border: solid 3px #7fbbf7;
 	margin-top: 30px;
 	padding: 20px;
+	box-shadow: 0 8px 6px -6px black;
 }
 
 .branding {
