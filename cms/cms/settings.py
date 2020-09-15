@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'debug_toolbar',
     'django_extensions',
     'crispy_forms',
     'sslserver',
@@ -45,9 +47,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # for serving static files
-
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -141,3 +142,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 SESSION_SAVE_EVERY_REQUEST = True
 
 SESSION_COOKIE_AGE = 3600  # logout inactive after 1 hour
+
+INTERNAL_IPS = ('127.0.0.1',)
