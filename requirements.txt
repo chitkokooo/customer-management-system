@@ -4,7 +4,7 @@ CairoSVG==2.4.2
 cffi==1.14.0
 cssselect2==0.3.0
 defusedxml==0.6.0
-Django==3.0.8
+Django==3.1.6
 django-debug-toolbar==2.2
 django-extensions==3.0.4
 django-sslserver==0.22
